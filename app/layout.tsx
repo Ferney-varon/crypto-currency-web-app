@@ -13,7 +13,10 @@ export default function RootLayout({
       </head>
       <body>
         <Header />
-        {children}
+          {children}
+        <aside>
+          <p>Check</p>
+        </aside>
       </body>
     </html>
   )
