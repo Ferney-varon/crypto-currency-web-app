@@ -1,29 +1,14 @@
-import Link from "next/link";
-
-
-export type Route = {
-    name: string;
-    route: string
-}
-
-const routes : Route[]= [
-    {
-        name: 'testing',
-        route: '/testing'
-    },
-    {
-        name: 'testing1',
-        route: '/testing1'
-    }
-]
+import Button from "./clientComponents/commonButton";
+import { Route } from "../types";
+import { ROUTES } from "../constants"
 
 export default function Navigation () {
     return(
     <nav>
         <ul>
-            {routes.map((el: Route):any => {
+            {ROUTES.map((el: Route):any => {
                 <li key={el.route}>
-                    <Link href={el.route}>{el.name}</Link>
+                    <Button href={el.route} text={el.label} />
                 </li>
             })}
         </ul>
