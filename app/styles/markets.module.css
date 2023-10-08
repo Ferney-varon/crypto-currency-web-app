@@ -1,0 +1,17 @@
+.marketContainer {
+    width: auto;
+    border: 1px solid #eee;
+    border-radius: 0.5rem;
+    box-shadow: 10px 10px #eee;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.bannerContainer {
+    margin: 1rem 0;
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+

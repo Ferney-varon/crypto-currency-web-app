@@ -1,0 +1,43 @@
+
+.cardWrapper {
+    width: 250px;
+    border-radius: 0.5rem;
+    flex-grow: 1;
+    margin: 1rem;
+    border: 2px solid rgb(221, 221, 221);
+    height: auto;
+}
+
+.cardElement {
+    margin: 0 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.cardHeader{
+   text-align: center;
+   border-bottom: 1px solid #ccc;
+}
+
+.cardInfo {
+    margin: 0.5rem 0;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.infoHeaders {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+}
+
+.infoData {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.3rem;
+}
