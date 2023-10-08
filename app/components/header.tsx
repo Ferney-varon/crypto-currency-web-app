@@ -12,12 +12,11 @@ const [homeRoute] = ROUTES.filter(({label})=>label === 'Home');
 return (
 <header className={styles.header}> 
     <div className="button-container">
-        <Button href={homeRoute.route} text={homeRoute.label} />
+        <Button href={homeRoute.route} text={'\u2302'} />
     </div>
     <hr />
-    <div className="nav-container">
-        <Navigation />
-        Testing 
+    <div className={styles.navContainer}>
+        <Navigation /> 
     </div>
 </header>
 )};
