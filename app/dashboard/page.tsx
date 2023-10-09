@@ -1,12 +1,12 @@
+import { TableHead } from '../components/clientComponents/tableHead';
 import TabularRow from '../components/tabularRow';
-import { TABLE_HEAD_INFO } from '../constants'
+import styles from '../styles/tables.module.css'
 
 
 const fetchCryptoCurrency = async ()=>{
     const url = 'https://api.coinlore.net/api/tickers/'
 
     const response = await fetch(url, {next: {revalidate: 60 }})
-
     if (!response.ok)throw new Error("Failed to fetch Crypto currencies");
 
     return response.json()
@@ -15,20 +15,15 @@ const fetchCryptoCurrency = async ()=>{
 export default async function DashboardPage () {
 
     const {data} = await fetchCryptoCurrency();
-    // TODO: remove the slice fn after testing
-    const cryptoCurrency = data;
+    
     return (
-        <div className="tableContainer">
-            <table>
-                <thead>
-                    <tr>
-                        {TABLE_HEAD_INFO.map((el)=>{
-                            return <th key={el}>{el}</th>
-                        })}
-                    </tr>
+        <div className={styles.tableContainer}>
+            <table className={styles.tableElement}>
+                <thead className={styles.tableHeaderGroup}>
+                    <TableHead data={data} />
                 </thead>
-                <tbody>
-                    {cryptoCurrency.map((el:any)=>{
+                <tbody className={styles.tableBodyGroup}>
+                    {data?.map((el:any)=>{
                         return (
                             <TabularRow key={el.id} data={el}/>
                         )

@@ -15,8 +15,10 @@ export const ROUTES : Route[]= [
     }
 ];
 
-export const TABLE_HEAD_INFO = [
-    'Rank',
-    'Crypto Coin',
-    'Price'
-];
+export const TABLE_HEAD_INFO = {
+   rank: 'Rank',
+   name: 'Crypto Coin',
+   price_usd: 'Price USD',
+   percent_change_1h: '1 Hour',
+   percent_change_24h: '24 Hour'
+};
