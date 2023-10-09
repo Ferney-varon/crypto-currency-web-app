@@ -2,9 +2,8 @@ import styles from "@/app/styles/card.module.css"
 
 export default function Card ({data}:any) {
     const {name,base,price_usd} = data;
-    const price = price_usd.toFixed(3)
     const infoHeaders = ['Base Currency:','Price Offered:']
-    const infoData = [base, `$${price}`];
+    const infoData = [base, `$${price_usd}`];
     return (
         <div className={styles.cardWrapper}>
             <div className={styles.cardElement}>

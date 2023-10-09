@@ -1,6 +1,6 @@
 import Header from './components/header'
 import './globals.css'
-
+import { ReduxProvider } from './redux/provider'
 export default function RootLayout({
   children,
 }: {
@@ -12,11 +12,13 @@ export default function RootLayout({
         <title>Crypto Currency App</title>
       </head>
       <body>
-        <Header />
-        <hr />
-        <div className='wrapper'>
-          {children}          
-        </div>
+        <ReduxProvider>
+          <Header />
+          <hr />
+          <div className='wrapper'>
+            {children}          
+          </div>
+        </ReduxProvider>
       </body>
     </html>
   )
