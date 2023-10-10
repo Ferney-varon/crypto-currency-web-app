@@ -1,4 +1,3 @@
-import Counter from "../components/clientComponents/counter";
 import { LayoutProps } from "../types";
 
 export default function DashboardLayout ({children}: LayoutProps) {

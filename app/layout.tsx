@@ -1,6 +1,7 @@
 import Header from './components/header'
 import './globals.css'
 import { ReduxProvider } from './redux/provider'
+
 export default function RootLayout({
   children,
 }: {
