@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { Dispatch, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { TABLE_HEAD_INFO } from '@/app/constants'
@@ -17,27 +17,27 @@ export const TableComponent = () => {
         const windowObject: Window =  window
         const isRouteDashboard = windowObject.location.pathname === '/dashboard'
         if(isRouteDashboard && !hasFetchButtonClicked){
-            dispatch(fetchCryptos()as any)
+            dispatch(fetchCryptos() as any);
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     
     const dispatch = useDispatch();
     const hasFetchButtonClicked = useSelector(getFetchButtonClicked);
+    const data = useSelector(getCryptos);
+    const headerInfo = Object.entries(TABLE_HEAD_INFO);
 
-    const handleSort = (key?:any) => {
-        const sortedData = [...data].sort((a,b):any=> {
+    const handleSort = (key: string) => {
+        const sortedData = [...data].sort((a: any, b: any): any => {
             if(a[key] > b[key]){
                 return -1
             }else if (b[key] > a[key]) {
                 return -1
             }
         });
-        dispatch(sortTableData(sortedData))
+        dispatch(sortTableData(sortedData));
     };
 
-    const data = useSelector(getCryptos);
-    const headerInfo = Object.entries(TABLE_HEAD_INFO)
   return (
     <table className={styles.tableElement}>
       <thead className={styles.tableHeaderGroup}>
@@ -48,7 +48,7 @@ export const TableComponent = () => {
           </tr>
       </thead>
       <tbody className={styles.tableBodyGroup}>
-          {data?.map((el:any)=>{
+          {data?.map((el)=>{
               return (
                   <TabularRow key={el.id} data={el}/>
               )

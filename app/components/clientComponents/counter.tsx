@@ -1,8 +1,8 @@
 'use client';
 
+import { useDispatch, useSelector } from "react-redux";
 import { incrementCounter, decrementCounter } from "@/app/redux/actions/counterActions";
 import { getCounter } from "@/app/redux/selectors/selector";
-import { useDispatch, useSelector } from "react-redux";
 
 export default function Counter() {
     const counter = useSelector(getCounter)

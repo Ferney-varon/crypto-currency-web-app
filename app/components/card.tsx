@@ -1,7 +1,8 @@
 import styles from "@/app/styles/card.module.css"
+import { MarketsResponse } from "../types";
 
-export default function Card ({data}:any) {
-    const {name,base,price_usd} = data;
+export default function Card ({data}: {data: MarketsResponse}) {
+    const {name, base, price_usd} = data;
     const infoHeaders = ['Base Currency:','Price Offered:']
     const infoData = [base, `$${price_usd}`];
     return (
@@ -29,4 +30,4 @@ export default function Card ({data}:any) {
             </div>
         </div>
     )
-}
+};

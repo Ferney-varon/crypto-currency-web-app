@@ -1,10 +1,10 @@
 'use client'
-import { fetchCryptoBtnClicked } from '@/app/redux/actions/cryptoSliceActions';
-import { getFetchButtonClicked } from '@/app/redux/selectors/selector';
 import { useRouter } from 'next/navigation'
 import { useDispatch, useSelector } from 'react-redux';
-import { ButtonProps } from '../../types'
 import styles from '../../styles/navigation.module.css'
+import { ButtonProps } from '../../types'
+import { fetchCryptosBtnClicked } from '@/app/redux/actions/cryptoSliceActions';
+import { getFetchButtonClicked } from '@/app/redux/selectors/selector';
 
 export default function Button (props: ButtonProps) {
     const dispatch = useDispatch();
@@ -17,7 +17,7 @@ export default function Button (props: ButtonProps) {
     const handleClick = () =>{
         router.push(href)
         if(href === '/dashboard' && !hasFetchButtonClicked){
-            dispatch(fetchCryptoBtnClicked())
+            dispatch(fetchCryptosBtnClicked())
         }
     }
 

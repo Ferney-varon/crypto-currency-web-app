@@ -7,7 +7,7 @@ import reducers from "./reducers";
 
 export const store = configureStore({
     reducer: reducers,
-    middleware: (getDefaultMiddleware)=> getDefaultMiddleware().concat(middleware)
+    middleware: (getDefaultMiddleware):any => getDefaultMiddleware().concat(middleware)
 });
 
 setupListeners(store.dispatch)

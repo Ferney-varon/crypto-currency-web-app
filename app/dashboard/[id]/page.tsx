@@ -1,4 +1,4 @@
 
-export default async function CurrencyPage () {
+export default function CurrencyPage (): React.ReactNode {
     return null
 }

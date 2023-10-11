@@ -1,19 +1,16 @@
 'use client';
 
 import Link from "next/link";
-
-import { LayoutProps } from "@/app/types";
-import styles from '@/app/styles/markets.module.css'
 import { useSelector } from "react-redux";
+import styles from '@/app/styles/markets.module.css'
 import { getCryptoById } from "@/app/redux/selectors/selector";
+import { LayoutProps } from "@/app/types";
 
 
 
-export default function CurrencyLayout ({children, params}: LayoutProps ) {
+export default function CurrencyLayout ({children}: LayoutProps): React.ReactNode {
     const singleCurrency = useSelector(getCryptoById)
-    const {id} = params;
-    // or
-    // const id = singleCurrency.id;
+    const id = singleCurrency.id;
     return (
         <div className={styles.singleCurrencyContainer}>
             <div className={styles.singleCurrencyWrapper}>

@@ -1,24 +1,23 @@
 'use client';
 
+import { CryptoResponse, ICryptoState } from "@/app/types";
 import { AnyAction, Reducer } from "@reduxjs/toolkit";
 
-import { FETCH_CRYPTOS_FAILURE, FETCH_CRYPTOS_REQUEST, FETCH_CRYPTOS_SUCCESS, FETCH_CRYPTO_BUTTON_CLICKED, FETCH_CRYPTO_BY_ID_SUCCESS, SORT_BUTTON_CLICKED } from '../actions/actionTypes'
+import { FETCH_CRYPTOS_FAILURE, FETCH_CRYPTOS_REQUEST, FETCH_CRYPTOS_SUCCESS, FETCH_CRYPTO_BUTTON_CLICKED, FETCH_CRYPTO_BY_ID_SUCCESS, SORT_BUTTON_CLICKED } from '../actions/actionTypes';
 
-export interface ICrypto {
-
-}
-export interface ICryptoState {
-    loading: boolean;
-    cryptos: ICrypto[];// TODO: add this interface
-    cryptoById: ICrypto
-    error: string;
-    hasFetchButtonClicked: boolean
-};
+const cryptoByIdInitialState: CryptoResponse = {
+    id: '',
+    name: '',
+    percent_change_1h: '',
+    percent_change_24h: '',
+    price_usd: '',
+    rank: 0
+} 
 
 const initialState: ICryptoState = {
     loading: false,
     cryptos: [],
-    cryptoById: {},
+    cryptoById: cryptoByIdInitialState,
     error: '',
     hasFetchButtonClicked: false
 }

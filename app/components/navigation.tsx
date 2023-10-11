@@ -7,7 +7,7 @@ export default function Navigation () {
     return(
     <nav>
         <ul className={styles.nav}>
-            {ROUTES.map((el: Route):any => {
+            {ROUTES.map((el: Route) => {
                 return (
                     <li key={el.route} className={styles.listItemNav}>
                         <Button href={el.route} text={el.label} />

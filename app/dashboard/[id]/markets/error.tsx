@@ -1,7 +1,7 @@
 'use client'
 import styles from '@/app/styles/error.module.css'
 
-export default function Error ({reset}: {reset: () => void}) {
+export default function Error ({reset}: {reset: () => void}): React.ReactNode {
     return (
         <div className={styles.errorContainer}>
             <div className={styles.errorIcon}>❌</div>
@@ -9,4 +9,4 @@ export default function Error ({reset}: {reset: () => void}) {
             <button onClick={()=> reset()}>Try again</button>
         </div>
     );
-}
+};
