@@ -1,6 +1,7 @@
 export type ButtonProps = {
     text: string;
-    href: string
+    href: string;
+    dashboardBtn?: boolean;
 }
 
 export type Route = {

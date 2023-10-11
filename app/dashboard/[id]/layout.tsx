@@ -1,25 +1,34 @@
-import { LayoutProps } from "@/app/types";
+'use client';
+
 import Link from "next/link";
 
+import { LayoutProps } from "@/app/types";
+import styles from '@/app/styles/markets.module.css'
+import { useSelector } from "react-redux";
+import { getCryptoById } from "@/app/redux/selectors/selector";
 
-const fetchSingleCurrency = async (id: number)=>{
-    const url = `https://api.coinlore.net/api/ticker/?id=${id}`
 
-    const response = await fetch(url, {next: {revalidate: 60 }})
 
-    if (!response.ok)throw new Error("Failed to fetch single Currency");
-
-    return response.json()
-}
-
-export default async function CurrencyLayout ({children, params}: LayoutProps ) {
+export default function CurrencyLayout ({children, params}: LayoutProps ) {
+    const singleCurrency = useSelector(getCryptoById)
     const {id} = params;
-    const [singleCurrency] = await fetchSingleCurrency(id);
+    // or
+    // const id = singleCurrency.id;
     return (
-        <div>
-            <p>Testing each coing: {singleCurrency.name}</p>
-            <p>Testing each coing: {singleCurrency.price_usd}</p>
-            <Link href='/dashboard/[id]/markets' as={`/dashboard/${id}/markets`}>Want to see Markets for {singleCurrency.name}</Link>
+        <div className={styles.singleCurrencyContainer}>
+            <div className={styles.singleCurrencyWrapper}>
+                <div className={styles.infoContainer}>
+                    <span>Crypto currency: </span>
+                    <span>Current price: </span>
+                    <span>Percentage change in last 24h: </span>
+                </div>
+                <div className={styles.infoContainer}>
+                    <span>{singleCurrency.name}</span>
+                    <span>${singleCurrency.price_usd}</span>
+                    <span>{singleCurrency.percent_change_24h}%</span>
+                </div>
+            </div>
+            <Link href='/dashboard/[id]/markets' as={`/dashboard/${id}/markets`}>¿Want to see Markets available for {singleCurrency.name}?</Link>
             {children}
         </div>
     )

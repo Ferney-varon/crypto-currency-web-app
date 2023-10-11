@@ -3,6 +3,7 @@
 import { fetchCryptoBtnClicked } from "@/app/redux/actions/cryptoSliceActions";
 import { useRouter } from 'next/navigation'
 import { useDispatch } from "react-redux";
+import styles from '../../styles/main.module.css'
 
 export default function CryptoFetcherButton() {
   const router = useRouter()
@@ -14,7 +15,7 @@ export default function CryptoFetcherButton() {
   };
     
   return (
-    <button onClick={handleClick}>Try seeing our data collection here</button>
+    <button onClick={handleClick} className={styles.fetcherButton}>¿Interested? Try seeing our Data collection here</button>
   )
 }
 

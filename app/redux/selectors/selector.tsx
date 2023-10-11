@@ -20,3 +20,7 @@ export const getCryptos = (state:ICryptoState) => {
 export const getFetchButtonClicked = (state:ICryptoState):boolean => {
     return getCryptosSlice(state).hasFetchButtonClicked;
 };
+
+export const getCryptoById = (state:ICryptoState) => {
+    return getCryptosSlice(state).cryptoById;
+};

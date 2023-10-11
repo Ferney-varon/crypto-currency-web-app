@@ -1,27 +1,30 @@
 'use client';
 
-import { TABLE_HEAD_INFO } from '@/app/constants'
-import { fetchCryptos, sortTableData } from '@/app/redux/actions/cryptoSliceActions';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import styles from '@/app/styles/tables.module.css'
 
+import { TABLE_HEAD_INFO } from '@/app/constants'
+import { fetchCryptos, sortTableData } from '@/app/redux/actions/cryptoSliceActions';
+import styles from '@/app/styles/tables.module.css'
 import TabularRow from '../tabularRow';
 import { getCryptos, getFetchButtonClicked} from '@/app/redux/selectors/selector';
 
 
 
 export const TableComponent = () => {
-    const dispatch = useDispatch()
-    const hasFetchButtonClicked = useSelector(getFetchButtonClicked)
-    const windowObject: Window =  window
-    const isRouteDashboard = windowObject.location.pathname === '/dashboard'
-    useEffect(() => {
-        if(isRouteDashboard && !hasFetchButtonClicked){
-            dispatch(fetchCryptos())
-        }
-    }, [])
     
+    useEffect(() => {
+        const windowObject: Window =  window
+        const isRouteDashboard = windowObject.location.pathname === '/dashboard'
+        if(isRouteDashboard && !hasFetchButtonClicked){
+            dispatch(fetchCryptos()as any)
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+    
+    const dispatch = useDispatch();
+    const hasFetchButtonClicked = useSelector(getFetchButtonClicked);
+
     const handleSort = (key?:any) => {
         const sortedData = [...data].sort((a,b):any=> {
             if(a[key] > b[key]){
@@ -31,9 +34,8 @@ export const TableComponent = () => {
             }
         });
         dispatch(sortTableData(sortedData))
-        return;
-    }
-    
+    };
+
     const data = useSelector(getCryptos);
     const headerInfo = Object.entries(TABLE_HEAD_INFO)
   return (
@@ -53,5 +55,5 @@ export const TableComponent = () => {
           })}
       </tbody>
    </table>
-  )
-}
+  );
+};

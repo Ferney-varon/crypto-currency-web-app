@@ -2,14 +2,15 @@
 
 import { AnyAction, Reducer } from "@reduxjs/toolkit";
 
-import { FETCH_CRYPTOS_FAILURE, FETCH_CRYPTOS_REQUEST, FETCH_CRYPTOS_SUCCESS, FETCH_CRYPTO_BUTTON_CLICKED, SORT_BUTTON_CLICKED } from '../actions/actionTypes'
+import { FETCH_CRYPTOS_FAILURE, FETCH_CRYPTOS_REQUEST, FETCH_CRYPTOS_SUCCESS, FETCH_CRYPTO_BUTTON_CLICKED, FETCH_CRYPTO_BY_ID_SUCCESS, SORT_BUTTON_CLICKED } from '../actions/actionTypes'
 
 export interface ICrypto {
 
 }
 export interface ICryptoState {
     loading: boolean;
-    cryptos: ICrypto;// TODO: add this interface
+    cryptos: ICrypto[];// TODO: add this interface
+    cryptoById: ICrypto
     error: string;
     hasFetchButtonClicked: boolean
 };
@@ -17,6 +18,7 @@ export interface ICryptoState {
 const initialState: ICryptoState = {
     loading: false,
     cryptos: [],
+    cryptoById: {},
     error: '',
     hasFetchButtonClicked: false
 }
@@ -52,6 +54,13 @@ export const cryptoReducer: ICryptoReducer = (state = initialState as ICryptoSta
         }
         case FETCH_CRYPTO_BUTTON_CLICKED: {
             return {...state, hasFetchButtonClicked: true}
+        }
+        case FETCH_CRYPTO_BY_ID_SUCCESS: {
+            if (action.payload){
+                const cryptoById = action.payload
+                return {...state, cryptoById}
+            }
+            return state
         }
         default: {
             return state;
