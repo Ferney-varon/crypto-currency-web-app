@@ -60,7 +60,7 @@
         padding-left: 6rem;
     }
     @media (max-width: 576px) {
-        padding-left: 4rem;
+        padding-left: 2rem;
     }
 }
 .fetcherButton {

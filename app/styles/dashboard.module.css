@@ -15,17 +15,30 @@
 
 .inputContainer {
     display: flex;
-    flex-direction: row;
     align-items: center;
     padding-right: 0.5rem;
 }
 
-.inputWrapper > * {
-    padding: 0.5rem;
+.inputWrapper {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+
+    @media (max-width: 576px) {
+        flex-direction: column;
+        align-items: end;
+        margin-left: 0.5rem
+    }
+
 }
 
-.inputWrapper > input{
+.inputWrapper > * {
+    padding: 0.5rem;
     margin-right: 0.5rem;
+    @media (max-width: 576px) {
+        margin: 0;
+    }
 }
 
 .dashboardContainer {
@@ -34,4 +47,8 @@
 
 .dashboardInfo > h2{
     margin: 0.5rem 0;
+
+    @media (max-width: 576px) {
+        font-size: 1.2rem;
+    }
 }
