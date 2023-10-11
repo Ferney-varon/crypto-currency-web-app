@@ -1,0 +1,70 @@
+
+.mainWrapper {
+    display: flex;
+    width: auto;
+    flex-direction: row;
+    height: 100%;
+}
+
+.mainContainer {
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 70%;
+    height: 100%;
+    padding-right: 1rem;
+    border-right: 2px solid #eee;
+    background: linear-gradient(90deg, #c7aa02, #ffd900);
+}
+
+.infoContainer > h2{
+    font-size: 4rem;
+    margin: 2rem 0;
+    @media (max-width: 1280px) {
+        font-size: 3rem;
+    }
+    @media (max-width: 576px) {
+        font-size: 1.8rem;
+    }
+}
+.infoContainer span:nth-child(n){
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    @media (max-width: 1280px) {
+        font-size: 1.3rem;
+    }
+    @media (max-width: 576px) {
+        font-size: 1rem;
+    }
+}
+.infoContainer span:nth-child(2){
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    padding-left: 0;
+    @media (max-width: 1280px) {
+        font-size: 1.5rem;
+    }
+    @media (max-width: 576px) {
+        font-size: 1.2rem;
+    }
+}
+
+.infoContainer {
+    height: 100%;
+    padding-left: 10rem;
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 1280px) {
+        padding-left: 6rem;
+    }
+    @media (max-width: 576px) {
+        padding-left: 4rem;
+    }
+}
+.fetcherButton {
+    width: 100%;
+    font-size: 1rem;
+    border-radius: 16px;
+}

@@ -9,10 +9,6 @@ export const ROUTES : Route[]= [
         label: 'Dashboard',
         route: '/dashboard'
     },
-    {
-        label: 'testing1',
-        route: '/testing1'
-    }
 ];
 
 export const TABLE_HEAD_INFO = {

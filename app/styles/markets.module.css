@@ -14,4 +14,28 @@
     font-size: 18px;
 }
 
+.singleCurrencyContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.singleCurrencyWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 60%;
+    margin-bottom: 1rem;
+}
+
+.infoContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.infoContainer span:nth-child(n) {
+    font-size: 1.3rem;
+    padding: 0.3rem 5rem;
+}
+
 

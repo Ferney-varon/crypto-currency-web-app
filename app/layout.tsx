@@ -15,7 +15,6 @@ export default function RootLayout({
       <body>
         <ReduxProvider>
           <Header />
-          <hr />
           <div className='wrapper'>
             {children}          
           </div>

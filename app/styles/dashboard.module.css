@@ -1,6 +1,17 @@
 .dashboard {
-    width: 100%;
+    width: auto;
     display: flex;
     flex-direction: row;
-    background-color: blue;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #777;
+    background-color: #ffd900;
+}
+
+.dashboardContainer {
+    margin: 0;
+}
+
+.dashboardInfo > h2{
+    margin: 0.5rem 0;
 }

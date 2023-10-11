@@ -1,17 +1,15 @@
-import Button from "./clientComponents/commonButton";
 import styles from "../styles/header.module.css"
 import Navigation from "./navigation";
-import { ROUTES } from '../constants'
+import Image from 'next/image'
 
 export default function Header () {
 
-const [homeRoute] = ROUTES.filter(({label})=>label === 'Home');
 return (
 <header className={styles.header}> 
-    <div className="button-container">
-        <Button href={homeRoute.route} text={'\u2302'} />
+    <div className={styles.logoContainer}>
+        <Image src={'https://img.icons8.com/officel/80/logo.png'} width={50} height={50} alt="company-logo"/>
+        <h1>All the information you need<br /> in one place</h1>
     </div>
-    <hr />
     <div className={styles.navContainer}>
         <Navigation /> 
     </div>

@@ -24,10 +24,14 @@
 }
 
 .tableHeaderGroup th:nth-child(2) {
+    background-color: #ffd900;
     min-width: 200px;
 }
 .tableHeaderGroup th:nth-child(3) {
     min-width: 80px;
+}
+.tableHeaderGroup th:nth-child(4) {
+    background-color: #ffd900;
 }
 .isTrendingUp{
     color: green;

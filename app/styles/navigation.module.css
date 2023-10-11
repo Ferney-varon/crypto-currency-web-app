@@ -2,13 +2,36 @@
     list-style: none;
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: auto;
     gap: 1rem;
-    justify-content: space-evenly
+    justify-content: space-evenly;
+
+    @media (max-width: 576px) {
+        flex-direction: column;
+        align-items: flex-end;  
+    }
 };
 
 .listItemNav {
     display: flex;
     flex-direction: row;
     width: 100%;
+}
+
+.button {
+    background-color: white;
+    border-radius: 25px / 17px;
+    width: 10rem;
+    font-size: 1rem;
+    @media (max-width: 1280px) {
+        width: 7rem;
+    }
+}
+
+.dashboardButton {
+    background-color: white;
+    width: 3rem;
+    font-size: 2rem;
+    margin: 0.5rem 2rem 0.5rem 0.5rem;
+    border: 1px solid #444;
 }
